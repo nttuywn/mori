@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
@@ -24,10 +25,10 @@ public class HeartbeartService extends Service {
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
-            Context context = getApplicationContext();
-            Intent myIntent = new Intent(context, HeartbeatEventService.class);
-            context.startService(myIntent);
-            HeadlessJsTaskService.acquireWakeLockNow(context);
+
+            Intent myIntent = new Intent(getApplicationContext(), HeartbeatEventService.class);
+            getApplicationContext().startService(myIntent);
+            HeadlessJsTaskService.acquireWakeLockNow(getApplicationContext());
             handler.postDelayed(this, 2000);
         }
     };

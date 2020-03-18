@@ -19,6 +19,5 @@ const RNRedux = () => (
   </Provider>
 );
 
-
 AppRegistry.registerHeadlessTask('Heartbeat', () => MyHeadlessTask);
 AppRegistry.registerComponent(appName, () => RNRedux);
